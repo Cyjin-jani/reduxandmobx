@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
 import { userStore, postStore } from './store';
 
+// 역시 데코레이터 없이 observer로 App 클래스 전체를 감쌀 수 도 있다.
+// 지금은 불안정하지만 나중에 데코레이터는 공식적으로 사용가능해질 수 있음.
+// (webpack.config에 @babel/plugin-proposal-decorators와 class-properties는 꼭 필요!)
 @observer
 class App extends Component {
 
@@ -11,6 +14,20 @@ class App extends Component {
     name: '',
     password: '',
   });
+  // 아래와 같은 경우도 가능하다. (하지만 정해진 방법대로만 사용이 가능한 게 데코레이터. 함부로 사용은 불가.)
+  // action이나 observable을 사용할 수 있는게 class 컴포넌트
+  // @observable state = {
+  //   name: '',
+  //   password: '',
+  // };
+
+
+  // @action onLogIn = () => {
+  //   userStore.logIn({
+  //     nickname: 'hihi',
+  //     password: 'abcd',
+  //   });
+  // };
 
   onLogIn = () => {
     userStore.logIn({
