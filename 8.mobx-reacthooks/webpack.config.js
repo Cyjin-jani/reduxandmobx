@@ -34,7 +34,7 @@ module.exports = {
     publicPath: '/dist/',
   },
   devServer: {
-    port: 3071,
+    port: 3080,
     publicPath: '/dist/',
     hot: true,
   }

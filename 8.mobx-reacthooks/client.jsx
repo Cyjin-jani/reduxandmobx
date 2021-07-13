@@ -6,9 +6,9 @@ import StoreProvider from './Context';
 
 const Hot = hot(App);
 
+// <StoreProvider>
+// </StoreProvider>,
 ReactDOM.render(
-  <StoreProvider>
-    <Hot />
-  </StoreProvider>,
+  <Hot />,
   document.querySelector('#root'),
 );
